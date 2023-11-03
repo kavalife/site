@@ -8,14 +8,18 @@
             text-align: center;
         }
         h1 {
-            color: orange;
+            color: blue; /* Змінений колір тексту */
+        }
+        .message {
+            font-size: 24px;
+            color: blue; /* Змінений колір тексту */
         }
         button {
             background-color: yellow;
-            color: orange;
+            color: blue; /* Змінений колір тексту */
             font-size: 18px;
             padding: 10px 20px;
-            border: none;
+            border: 2px solid orange; /* Доданий контур */
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
@@ -29,6 +33,7 @@
 </head>
 <body>
     <h1>Сонечко, я тебе кохаю!</h1>
+    <p class="message">Як це звучить для тебе?</p>
     <button id="loveButton">Я тебе теж!</button>
 
     <script>
