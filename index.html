@@ -1,47 +1,82 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <title>Любовна сторінка</title>
+    <title>Ты реально открыл?</title>
     <style>
         body {
-            background-color: yellow;
+            background-color: black;
+            color: lime;
+            font-family: monospace;
             text-align: center;
         }
         h1 {
-            color: blue; /* Змінений колір тексту */
-        }
-        .message {
             font-size: 24px;
-            color: blue; /* Змінений колір тексту */
         }
-        button {
-            background-color: yellow;
-            color: blue; /* Змінений колір тексту */
+        p {
             font-size: 18px;
-            padding: 10px 20px;
-            border: 2px solid orange; /* Доданий контур */
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
         }
-        button:hover {
-            background-color: orange;
-            color: yellow;
-            transform: scale(1.1);
+        ul.tabs {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        ul.tabs li {
+            display: inline;
+            margin-right: 20px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <h1>Сонечко, я тебе кохаю!</h1>
-
-    <button id="loveButton">Я тебе теж!</button>
+    <h1>Тебя слили</h1>
+    <ul class="tabs">
+        <li>фото</li>
+        <li>Видео</li>
+        <li>Онлайн-трансляция</li>
+    </ul>
+    <div id="tabContent">
+        <div>
+            <p>Уничтожение всех файлов - ожидаю команду:</p>
+            <form>
+                <input type="text" id="commandInput">
+                <input type="button" value="Виконати" onclick="executeCommand()">
+            </form>
+        </div>
+        <div>
+            <p>Геолокация массив, Васильков.</p>
+            <p>На высоте второго этажа.</p>
+        </div>
+        <div>
+            <p>Поиск по адресу:</p>
+            <form>
+                <input type="text" id="searchInput">
+                <input type="button" value="Знайти" onclick="searchAddress()">
+            </form>
+        </div>
+    </div>
 
     <script>
-        const loveButton = document.getElementById('loveButton');
-        loveButton.addEventListener('click', () => {
-            alert('Я теж тебе кохаю!');
-        });
+        const tabContent = document.getElementById('tabContent').children;
+        const tabs = document.querySelector('.tabs').querySelectorAll('li');
+
+        for (let i = 0; i < tabs.length; i++) {
+            tabs[i].addEventListener('click', () => {
+                for (let j = 0; j < tabs.length; j++) {
+                    tabs[j].classList.remove('active');
+                    tabContent[j].style.display = 'none';
+                }
+                tabs[i].classList.add('active');
+                tabContent[i].style.display = 'block';
+            });
+        }
+
+        function executeCommand() {
+            alert("Все файлы были удалены с вашего устройства, копия уже на сервере!");
+        }
+
+        function searchAddress() {
+            alert("Адресс найден, данные переданы в кометентные органы.");
+        }
     </script>
 </body>
 </html>
