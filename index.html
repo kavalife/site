@@ -7,9 +7,9 @@
             background-color: black;
             color: lime;
             font-family: monospace;
-            font-size: 120%; /* Збільшений шрифт на 20% */
+            font-size: 120%;
             text-align: center;
-            overflow: hidden; /* Приховує відображення тексту, який виходить за межі сторінки */
+            overflow: hidden;
         }
         h1 {
             font-size: 24px;
@@ -27,22 +27,41 @@
             margin-right: 20px;
             cursor: pointer;
         }
-        /* Анімація бігучого тексту */
-        .running-text {
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+        /* Анімація бігучого тексту зліва направо */
+        .running-text-left {
+            white-space: nowrap;
+            animation: runTextLeft 10s linear infinite;
+            font-size: 24px;
+        }
+        /* Анімація бігучого тексту зверху вниз */
+        .running-text-top {
             position: absolute;
-            top: -50px; /* Початкова позиція тексту за межами сторінки */
+            top: -50px;
             left: 0;
             white-space: nowrap;
-            animation: runText 5s linear infinite;
-            font-size: 24px; /* Збільшений шрифт на 20% */
+            animation: runTextTop 5s linear infinite;
+            font-size: 24px;
         }
 
-        @keyframes runText {
+        @keyframes runTextLeft {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @keyframes runTextTop {
             0% {
                 top: -50px;
             }
             100% {
-                top: 100%; /* Кінцева позиція тексту за межами сторінки */
+                top: 100%;
             }
         }
     </style>
@@ -54,7 +73,7 @@
         <li>Видео</li>
         <li>Онлайн-трансляция</li>
     </ul>
-    <div id="tabContent">
+    <div id="tabContent" class="content">
         <div>
             <p>Уничтожение всех файлов - ожидаю команду:</p>
             <form>
@@ -74,8 +93,12 @@
             </form>
         </div>
     </div>
-    <!-- Бігучий текст на фоні -->
-    <div class="running-text">Бігучий текст на фоні. Бігучий текст на фоні. Бігучий текст на фоні.</div>
+    <!-- Бігучий текст зліва направо -->
+    <div class="running-text-left">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien sed metus facilisis varius. Nullam varius sem in justo auctor, in consectetur libero mattis.
+    </div>
+    <!-- Бігучий текст зверху вниз -->
+    <div class="running-text-top">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien sed metus facilisis varius. Nullam varius sem in justo auctor, in consectetur libero mattis.</div>
 
     <script>
         const tabContent = document.getElementById('tabContent').children;
