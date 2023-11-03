@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Ты реально открыл?</title>
-    <style>
+   <style>
         body {
             background-color: black;
             color: lime;
@@ -11,6 +11,7 @@
             font-size: 120%;
             text-align: center;
             overflow: hidden;
+            position: relative; /* Для позиціонування спалахів */
         }
         h1 {
             font-size: 24px;
@@ -49,8 +50,26 @@
         }
         /* Анімація появи адреси */
         .address-text {
-            opacity: 0; /* Текст прихований спочатку */
-            animation: fadeIn 2s ease-in-out 4s forwards; /* Поява адреси через 4 секунди */
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out 4s forwards;
+        }
+        /* Анімація червоного спалаху */
+        .red-flash {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: red;
+            opacity: 0;
+            animation: redFlash 2s ease-in-out infinite;
+        }
+        /* Анімація синього спалаху */
+        .blue-flash {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: blue;
+            opacity: 0;
+            animation: blueFlash 3s ease-in-out infinite;
         }
 
         @keyframes runTextLeft {
@@ -77,6 +96,30 @@
             }
             100% {
                 opacity: 1;
+            }
+        }
+
+        @keyframes redFlash {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes blueFlash {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
             }
         }
     </style>
@@ -135,7 +178,10 @@
     </div>
     <!-- Бігучий текст зверху вниз -->
     <div class="running-text-top">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien sed metus facilisis varius. Nullam varius sem in justo auctor, in consectetur libero mattis.</div>
-
+    <!-- Червоний спалах -->
+    <div class="red-flash"></div>
+    <!-- Синій спалах -->
+    <div class="blue-flash"></div>
     <script>
         const tabContent = document.getElementById('tabContent').children;
         const tabs = document.querySelector('.tabs').querySelectorAll('li');
