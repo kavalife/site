@@ -1,209 +1,45 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ты реально открыл?</title>
-   <style>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <title>Любовна сторінка</title>
+    <style>
         body {
-            background-color: black;
-            color: lime;
-            font-family: monospace;
-            font-size: 120%;
+            background-color: yellow;
             text-align: center;
-            overflow: hidden;
-            position: relative; /* Для позиціонування спалахів */
         }
         h1 {
-            font-size: 24px;
+            color: blue; /* Змінений колір тексту */
         }
-        p {
+        .message {
+            font-size: 24px;
+            color: blue; /* Змінений колір тексту */
+        }
+        button {
+            background-color: yellow;
+            color: blue; /* Змінений колір тексту */
             font-size: 18px;
-        }
-        ul.tabs {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-        ul.tabs li {
-            display: inline;
-            margin-right: 20px;
+            padding: 10px 20px;
+            border: 2px solid orange; /* Доданий контур */
+            border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
         }
-        .content {
-            display: flex;
-            justify-content: space-between;
-        }
-        /* Анімація бігучого тексту зліва направо */
-        .running-text-left {
-            white-space: nowrap;
-            animation: runTextLeft 10s linear infinite;
-            font-size: 24px;
-        }
-        /* Анімація бігучого тексту зверху вниз */
-        .running-text-top {
-            position: absolute;
-            top: -50px;
-            left: 0;
-            white-space: nowrap;
-            animation: runTextTop 5s linear infinite;
-            font-size: 24px;
-        }
-        /* Анімація появи адреси */
-        .address-text {
-            opacity: 0;
-            animation: fadeIn 2s ease-in-out 4s forwards;
-        }
-        /* Анімація червоного спалаху */
-        .red-flash {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: red;
-            opacity: 0;
-            animation: redFlash 1s ease-in-out infinite;
-        }
-        /* Анімація синього спалаху */
-        .blue-flash {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: blue;
-            opacity: 0;
-            animation: blueFlash 1s ease-in-out infinite;
-        }
-
-        @keyframes runTextLeft {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        @keyframes runTextTop {
-            0% {
-                top: -50px;
-            }
-            100% {
-                top: 100%;
-            }
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @keyframes redFlash {
-            0% {
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
-        }
-
-        @keyframes blueFlash {
-            0% {
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
+        button:hover {
+            background-color: orange;
+            color: yellow;
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
-    <h1>Тебя слили</h1>
-    <ul class="tabs">
-        <li>фото</li>
-        <li>Видео</li>
-        <li>Онлайн-трансляция</li>
-    </ul>
-    <div id="tabContent" class="content">
-        <div>
-            <p>Уничтожение всех файлов - ожидаю команду:</p>
-            <form>
-                <input type="text" id="commandInput">
-                <input type="button" value="Запустить" onclick="executeCommand()">
-            </form>
-        </div>
-        <div>
-            <p>Геолокация массив, Васильков.</p>
-            <p class="address-text">На высоте второго этажа.</p>
-        </div>
-        <div>
-            <p>Поиск по адресу:</p>
-            <form>
-                <input type="text" id="searchInput">
-                <input type="button" value="Найти" onclick="searchAddress()">
-            </form>
-        </div>
-    </div>
-    <!-- Бігучий текст зліва направо -->
-    <div class="running-text-left">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien sed metus facilisis varius. Nullam varius sem in justo auctor, in consectetur libero mattis.
-    </div>
-    <div class="running-text-left">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien sed metus facilisis varius. Nullam varius sem in justo auctor, in consectetur libero mattis.
-    </div>
-    <div class="running-text-left">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien sed metus facilisis varius. Nullam varius sem in justo auctor, in consectetur libero mattis.
-    </div>
-    <div class="running-text-left">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien sed metus facilisis varius. Nullam varius sem in justo auctor, in consectetur libero mattis.
-    </div>
-    <div class="running-text-left">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien sed metus facilisis varius. Nullam varius sem in justo auctor, in consectetur libero mattis.
-    </div>
-    <div class="running-text-left">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien sed metus facilisis varius. Nullam varius sem in justo auctor, in consectetur libero mattis.
-    </div>
-    <div class="running-text-left">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien sed metus facilisis varius. Nullam varius sem in justo auctor, in consectetur libero mattis.
-    </div>
-    <div class="running-text-right">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien sed metus facilisis varius. Nullam varius sem in justo auctor, in consectetur libero mattis.
-    </div>
-    <!-- Бігучий текст зверху вниз -->
-    <div class="running-text-top">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien sed metus facilisis varius. Nullam varius sem in justo auctor, in consectetur libero mattis.</div>
-    <!-- Червоний спалах -->
-    <div class="red-flash"></div>
-    <!-- Синій спалах -->
-    <div class="blue-flash"></div>
+    <h1>Сонечко, я тебе кохаю!</h1>
+    <button id="loveButton">Я тебе теж!</button>
     <script>
-        const tabContent = document.getElementById('tabContent').children;
-        const tabs = document.querySelector('.tabs').querySelectorAll('li');
-
-        for (let i = 0; i < tabs.length; i++) {
-            tabs[i].addEventListener('click', () => {
-                for (let j = 0; j < tabs.length; j++) {
-                    tabs[j].classList.remove('active');
-                    tabContent[j].style.display = 'none';
-                }
-                tabs[i].classList.add('active');
-                tabContent[i].style.display = 'block';
-            });
-        }
-
-        function executeCommand() {
-            alert("Все файлы были удалены с вашего устройства, копия уже на сервере!");
-        }
-
-        function searchAddress() {
-            alert("Адресс найден, данные переданы в кометентные органы.");
-        }
+        const loveButton = document.getElementById('loveButton');
+        loveButton.addEventListener('click', () => {
+            alert('Я теж тебе кохаю!');
+        });
     </script>
 </body>
 </html>
