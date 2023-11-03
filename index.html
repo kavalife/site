@@ -1,10 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hello, World!</title>
+    <title>Любовна сторінка</title>
+    <style>
+        body {
+            background-color: yellow;
+            text-align: center;
+        }
+        h1 {
+            color: orange;
+        }
+        button {
+            background-color: yellow;
+            color: orange;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        button:hover {
+            background-color: orange;
+            color: yellow;
+            transform: scale(1.1);
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <p>Це простий приклад сторінки на  </p>
+    <h1>Сонечко, я тебе кохаю!</h1>
+    <button id="loveButton">Я тебе теж!</button>
+
+    <script>
+        const loveButton = document.getElementById('loveButton');
+        loveButton.addEventListener('click', () => {
+            alert('Я теж тебе кохаю!');
+        });
+    </script>
 </body>
 </html>
