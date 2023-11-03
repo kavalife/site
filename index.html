@@ -1,6 +1,3 @@
-Для додавання анімації бігучого тексту на фоні, ви можете використовувати CSS і ключові анімації. Ось оновлений код з анімацією бігучого тексту на фоні:
-
-```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +7,9 @@
             background-color: black;
             color: lime;
             font-family: monospace;
+            font-size: 120%; /* Збільшений шрифт на 20% */
             text-align: center;
+            overflow: hidden; /* Приховує відображення тексту, який виходить за межі сторінки */
         }
         h1 {
             font-size: 24px;
@@ -31,18 +30,19 @@
         /* Анімація бігучого тексту */
         .running-text {
             position: absolute;
-            top: 50%;
+            top: -50px; /* Початкова позиція тексту за межами сторінки */
             left: 0;
             white-space: nowrap;
-            animation: runText 10s linear infinite;
+            animation: runText 5s linear infinite;
+            font-size: 24px; /* Збільшений шрифт на 20% */
         }
 
         @keyframes runText {
             0% {
-                transform: translateX(100%);
+                top: -50px;
             }
             100% {
-                transform: translateX(-100%);
+                top: 100%; /* Кінцева позиція тексту за межами сторінки */
             }
         }
     </style>
@@ -87,7 +87,7 @@
                     tabs[j].classList.remove('active');
                     tabContent[j].style.display = 'none';
                 }
-                tabs[i].classList add('active');
+                tabs[i].classList.add('active');
                 tabContent[i].style.display = 'block';
             });
         }
@@ -102,6 +102,3 @@
     </script>
 </body>
 </html>
-```
-
-У цьому коді я додав CSS для створення анімації бігучого тексту на фоні сторінки. Бігучий текст рухається горизонтально зліва направо і відображається над основним вмістом сторінки. Анімація відтворюється безперервно. Такий ефект додаває хакерського настрою до сторінки.
