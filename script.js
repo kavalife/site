@@ -1,11 +1,10 @@
-var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1HqlJuNMoytkSh9tJjdSu1_Qg7laXC5gh';
+var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1HqlJuNMoytkSh9tJjdSu1_Qg7laXC5gh/edit#gid=826511735';
 
 function init() {
-    Tabletop.init({
+   Tabletop.init({
         key: publicSpreadsheetUrl,
         callback: showInfo,
-        simpleSheet: true,
-        wanted: ['Worksheet'] // Замініть 'YourSheetName' на назву вашого листка
+        simpleSheet: true
     });
 }
 
