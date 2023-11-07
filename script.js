@@ -18,9 +18,9 @@ function showInfo(data, tabletop) {
         var product = data[i];
         var productHtml = `
             <div class="product">
-                <h2>${product['назва моделі']}</h2>
-                <p>Ціна: ${product['ціна'] * product['курс']} грн</p>
-                <p>Наявність: ${product['наявність'] === '✅' ? 'Є в наявності' : 'Немає в наявності'}</p>
+                <h2>${product['Назва моделі']}</h2>
+                <p>Ціна: ${product['Ціна'] * product['курс']} грн</p>
+                <p>Наявність: ${product['Наявність'] === '✅' ? 'Є в наявності' : 'Немає в наявності'}</p>
             </div>
         `;
 
