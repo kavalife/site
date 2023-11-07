@@ -1,5 +1,5 @@
 // Підключаємося до Google Таблиці за допомогою Tabletop.js
-var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1HqlJuNMoytkSh9tJjdSu1_Qg7laXC5gh/edit?usp=sharing&ouid=101292332725883462634&rtpof=true&sd=true';
+var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1HqlJuNMoytkSh9tJjdSu1_Qg7laXC5gh/edit';
 
 function init() {
     Tabletop.init({
